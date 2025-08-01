@@ -49,6 +49,8 @@ const Countries = () => {
   };
   return (
     <>
+      <h1 className="countries-title">Countries of Europe</h1>
+      <h3>Browse by region:</h3>
       <SubregionFilters
         countriesList={countriesCard}
         onHandleChange={handleSubregionChange}
@@ -68,17 +70,16 @@ const Countries = () => {
           </div>
         </>
       ) : (
-        ""
+        <div className="countries-grid">
+          {countriesCard.map((country) => (
+            <Card
+              data={country}
+              key={country.population}
+              Component={CountriesList}
+            />
+          ))}
+        </div>
       )}
-      <div className="countries-grid">
-        {countriesCard.map((country) => (
-          <Card
-            data={country}
-            key={country.population}
-            Component={CountriesList}
-          />
-        ))}
-      </div>
     </>
   );
 };
