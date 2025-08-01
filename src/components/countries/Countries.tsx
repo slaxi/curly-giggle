@@ -4,12 +4,16 @@ import { CountryCard } from "./Countries.type";
 import "./Countries.css";
 import SubregionFilters from "../filters/subregion-filters/SubregionFilters";
 import { useCallback, useMemo, useState } from "react";
+import CardFilterBySubregion from "../card/cardFilterBySubregion/cardFilterBySubregion";
+import CountriesList from "../card/countriesList/CountriesList";
 
 const Countries = () => {
   const apiUrl = "https://restcountries.com/v3.1/region/europe";
   const { data, error, loading } = useFecthData(apiUrl);
-  const [countriesBySubregion, setCountriesBySubregion] = useState<CountryCard[] | []>([]);
-    const filteredBySubregion = useCallback(
+  const [countriesBySubregion, setCountriesBySubregion] = useState<
+    CountryCard[] | []
+  >([]);
+  const filteredBySubregion = useCallback(
     (subregion: string) => {
       return data.filter((country) => country.subregion === subregion);
     },
@@ -35,15 +39,12 @@ const Countries = () => {
     })
   );
 
-
-
   const handleSubregionChange = (
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {
-    console.log(event.target.value);
     const filteredList = filteredBySubregion(event.target.value);
-    console.log({filteredList})
-    if(!filteredList.length) setCountriesBySubregion(data)
+
+    if (!filteredList.length) setCountriesBySubregion(data);
     setCountriesBySubregion(filteredList);
   };
   return (
@@ -52,20 +53,32 @@ const Countries = () => {
         countriesList={countriesCard}
         onHandleChange={handleSubregionChange}
       />
-
       {countriesBySubregion.length ? (
-        <div className="countries-grid">
-          {countriesBySubregion.map((country) => (
-            <Card cardProps={country} key={country.population} />
-          ))}
-        </div>
+        <>
+          <div className="countries-grid">
+            {countriesBySubregion.map((country) => {
+              return (
+                <Card
+                  data={country}
+                  key={country.population}
+                  Component={CardFilterBySubregion}
+                />
+              );
+            })}
+          </div>
+        </>
       ) : (
-        <div className="countries-grid">
-          {countriesCard.map((country) => (
-            <Card cardProps={country} key={country.population} />
-          ))}
-        </div>
+        ""
       )}
+      <div className="countries-grid">
+        {countriesCard.map((country) => (
+          <Card
+            data={country}
+            key={country.population}
+            Component={CountriesList}
+          />
+        ))}
+      </div>
     </>
   );
 };
