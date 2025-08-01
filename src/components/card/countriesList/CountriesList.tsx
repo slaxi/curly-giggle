@@ -2,7 +2,8 @@ import React from "react";
 import { CountryCard } from "../../countries/Countries.type";
 
 const CountriesList = ({ data }: {data: CountryCard}) => {
-    const {name, flag, subregion, capital, population, languages} = data;
+  console.log({data})  
+  const {name, flag, subregion, capital, population, languages} = data;
   return (
     <div className="country-card">
       <div className="country-flag-wrapper">
