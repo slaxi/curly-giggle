@@ -1,0 +1,66 @@
+.country-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 1.5rem;
+    margin: 1rem 0;
+    transition: box-shadow 0.2s;
+    justify-items: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.country-card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.country-flag {
+    width: 100%;
+    max-width: 240px;
+    border-radius: 6px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+}
+
+.country-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.card-details {
+    font-size: 1rem;
+    color: #555;
+    text-align: center;
+}
+
+.card-capital {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 0.25rem;
+    text-align: center;
+}
+
+.card-population {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 0.25rem;
+    text-align: center;
+}
+
+.card-languages {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+    text-align: center;
+}
+
+.country-flag-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+

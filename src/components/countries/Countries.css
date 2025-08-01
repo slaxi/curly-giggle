@@ -1,0 +1,18 @@
+.countries-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 2rem;
+    gap: 1.5rem;
+}
+
+@media (min-width: 600px) {
+    .countries-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .countries-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
