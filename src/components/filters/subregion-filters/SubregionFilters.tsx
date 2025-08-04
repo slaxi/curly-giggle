@@ -15,12 +15,10 @@ const SubregionFilters = ({
       return acc;
     }, []);
 
-  console.log({ filterBySubregion });
   return (
     <div className="subregion-filters">
       <select className="subregion-select" onChange={onHandleChange}>
         <option value="">Select subregion</option>
-        {/* Ovde dodaj map */}
         {filterBySubregion.map((subregion) => (
           <option key={subregion} value={subregion}>
             {subregion}

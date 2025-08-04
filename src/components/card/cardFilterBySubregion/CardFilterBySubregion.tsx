@@ -27,7 +27,7 @@ const CardFilterBySubregion = ({ data }: { data: Country }) => {
         {[languages].map((language, index) => (
           <span key={index}>
             {Object.values(language).map((lang, index, arr) => (
-              <span>
+              <span key={lang}>
                 {lang}
                 {index < arr.length - 1 ? ", " : ""}
               </span>
